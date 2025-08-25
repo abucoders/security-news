@@ -1,12 +1,14 @@
+/* eslint-disable import/order */
 import type { Metadata } from "next";
 import { Roboto, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
+import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 
-import { ChildProps } from "@/types";
 import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
+import { ThemeProvider } from "@/providers/theme-provider";
+import { ChildProps } from "@/types";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -39,11 +41,20 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${roboto.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${roboto.variable} ${spaceGrotesk.variable} overflow-x-hidden antialiased`}
       >
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

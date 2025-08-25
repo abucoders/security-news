@@ -1,5 +1,14 @@
 {
   "HomePage": {
     "title": "Krilcha Json"
-  }
+  },
+
+  "NavbarLink": {
+    "navLink1": "Бош сахифа",
+    "navLink2": "Техникалын",
+    "navLink3": "Спорт",
+    "navLink4": "Травел"
+  },
+
+  "cyrrentLng": "Узбекча"
 }

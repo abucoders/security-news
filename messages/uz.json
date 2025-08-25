@@ -1,5 +1,14 @@
 {
   "HomePage": {
     "title": "Uzbekcha Json"
-  }
+  },
+
+  "NavbarLink": {
+    "navLink1": "Bosh sahifa",
+    "navLink2": "Texnalogiyalar",
+    "navLink3": "Sport",
+    "navLink4": "Travel"
+  },
+
+  "cyrrentLng": "O'zbek"
 }
