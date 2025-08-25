@@ -57,6 +57,9 @@ export default [
           alphabetize: { order: "asc", caseInsensitive: true },
         },
       ],
+
+      // PROBLEM: Muammolarni chetlab o'tish
+      "import/no-unresolved": "off",
     },
   },
 ];

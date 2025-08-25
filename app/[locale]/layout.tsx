@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Roboto, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+
 import { ChildProps } from "@/types";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -21,13 +25,25 @@ export const metadata: Metadata = {
   description: "Security News from the world of security",
 };
 
-export default function RootLayout({ children }: ChildProps) {
+interface RootLayoutProps extends ChildProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
     <html lang="en">
       <body
         className={`${roboto.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
