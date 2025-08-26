@@ -10,5 +10,9 @@
     "navLink4": "Travel"
   },
 
-  "cyrrentLng": "O'zbek"
+  "cyrrentLng": "O'zbek",
+
+  "HeroPage": {
+    "currentNews": "Dolzarb yangiliklar"
+  }
 }

@@ -10,5 +10,9 @@
     "navLink4": "Травел"
   },
 
-  "cyrrentLng": "Узбекча"
+  "cyrrentLng": "Узбекча",
+
+  "HeroPage": {
+    "currentNews": "Долзарб янгиликлар"
+  }
 }
