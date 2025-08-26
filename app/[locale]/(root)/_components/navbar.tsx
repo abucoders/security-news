@@ -14,7 +14,7 @@ const Navbar = async () => {
   const t = await getTranslations("NavbarLink");
 
   return (
-    <nav className="bg-background/70 fixed inset-0 z-10 h-20 px-2.5 backdrop-blur-xl">
+    <nav className="bg-background/70 fixed inset-0 z-50 h-20 px-2.5 backdrop-blur-xl">
       <div className="container mx-auto flex h-full max-w-7xl items-center justify-between border-b">
         <div className="flex items-center gap-4">
           <Logo />

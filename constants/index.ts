@@ -14,6 +14,16 @@ export const lngs = [
   { route: "kr", label: "Узбекча" },
 ];
 
+// Categories
+export const categories = [
+  { name: "Lifestyle", count: 5 },
+  { name: "Inspiration", count: 7 },
+  { name: "Fashion", count: 3 },
+  { name: "Photography", count: 6 },
+  { name: "Travel", count: 12 },
+  { name: "Business", count: 8 },
+];
+
 // News posts
 export const newsPosts = [
   {

@@ -14,5 +14,9 @@
 
   "HeroPage": {
     "currentNews": "Dolzarb yangiliklar"
-  }
+  },
+
+  "todaysTopNews": "Bugungi kunning eng muhim yangiliklari",
+  "categories": "Kategoriyalar",
+  "popularPost": "Mashhur postlar"
 }
