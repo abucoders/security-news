@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 // TODO: eslint.config.mjs
 
 // npm install -D eslint @eslint/eslintrc eslint-config-next eslint-config-prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-import
