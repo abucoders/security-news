@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { MoveRightIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import NewsCard from "@/components/cards/news-card";
@@ -18,9 +20,25 @@ const TodaysTopNews = () => {
       <div className="grid grid-cols-3 gap-6 pt-10">
         {/* LEFT SIDE */}
         <div className="col-span-2 grid gap-3 max-lg:col-span-3 md:grid-cols-2 lg:grid-cols-3">
-          {newsPosts.slice(0, 6).map((post, index) => (
+          {newsPosts.slice(0, 8).map((post, index) => (
             <NewsCard key={post.id} index={index} post={post} />
           ))}
+
+          {newsPosts.length >= 9 && (
+            <motion.article
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 8 * 0.2 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center rounded-2xl border"
+            >
+              <div className="max-md:p-3">
+                <p className="flex size-9 cursor-pointer items-center justify-center rounded-full border">
+                  <MoveRightIcon className="transform animate-pulse" />
+                </p>
+              </div>
+            </motion.article>
+          )}
         </div>
 
         {/* RIGHT SIDE */}

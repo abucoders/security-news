@@ -19,6 +19,7 @@ function Footer() {
             <Logo />
             <p>{t("Footer.description")}</p>
           </div>
+
           <div className="flex flex-col">
             <h1 className="font-spaceGrotesk text-3xl">{t("Footer.pages")}</h1>
             <div className="flex flex-col gap-1 pt-6">
@@ -26,13 +27,14 @@ function Footer() {
                 <Link
                   key={item.route}
                   href={`/${item.route}`}
-                  className="hover:text-primary font-medium transition-all hover:underline"
+                  className="hover:text-primary text-muted-foreground font-medium transition-all hover:underline"
                 >
                   {t(`NavbarLink.${item.name}`)}
                 </Link>
               ))}
             </div>
           </div>
+
           <div className="flex flex-col">
             <h1 className="font-spaceGrotesk text-3xl">{t("categories")}</h1>
             <div className="flex flex-wrap gap-1 pt-6">
@@ -47,10 +49,11 @@ function Footer() {
             </div>
           </div>
         </div>
+
         <div className="pt-12">
           <Separator className="bg-muted-foreground mb-3 dark:bg-gray-500" />
-          <p>
-            © {new Date().getFullYear()}. {t("Footer.copyright")}
+          <p className="text-muted-foreground flex items-center justify-center">
+            © {new Date().getFullYear()} - {t("Footer.copyright")}
           </p>
         </div>
       </div>
