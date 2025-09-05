@@ -18,5 +18,12 @@
 
   "todaysTopNews": "Бугунги куннинг энг муҳим янгиликлари",
   "categories": "Категориялар",
-  "popularPost": "Машҳур постлар"
+  "popularPost": "Машҳур постлар",
+
+  "Footer": {
+    "description": "тафсилот",
+    "pages": "Саҳифалар",
+    "contacts": "Алоқа",
+    "copyright": "Барча ҳуқуқлар ҳимояланган"
+  }
 }

@@ -10,7 +10,7 @@ const TodaysTopNews = () => {
   const t = useTranslations();
 
   return (
-    <div className="container mx-auto max-w-7xl py-12">
+    <div className="container mx-auto max-w-7xl px-2 py-12">
       <h2 className="font-spaceGrotesk border-primary/70 inline-block border-b-2 pb-1 text-3xl font-bold">
         {t("todaysTopNews")}
       </h2>

@@ -24,10 +24,7 @@ const CurrentNewsCard = ({ item }: Props) => {
         <p className="group-hover:text-primary line-clamp-2 text-sm font-semibold text-zinc-800 transition-colors duration-300 dark:text-zinc-100">
           {item.title}
         </p>
-        <Badge
-          className="dark:text-foreground border-primary border text-xs"
-          variant={"secondary"}
-        >
+        <Badge className="dark:text-foreground text-xs" variant={"destructive"}>
           {item.category}
         </Badge>
       </div>

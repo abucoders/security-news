@@ -18,5 +18,12 @@
 
   "todaysTopNews": "Bugungi kunning eng muhim yangiliklari",
   "categories": "Kategoriyalar",
-  "popularPost": "Mashhur postlar"
+  "popularPost": "Mashhur postlar",
+
+  "Footer": {
+    "description": "description",
+    "pages": "Sahifalar",
+    "contacts": "Aloqa",
+    "copyright": "Barcha huquqlar himoyalangan"
+  }
 }

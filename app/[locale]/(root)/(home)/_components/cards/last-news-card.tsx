@@ -43,7 +43,7 @@ const LastNewsCard = ({
       <div className="absolute inset-0 z-10 bg-black/30"></div>
 
       <div className="absolute right-4 bottom-4 left-4 z-10 text-white">
-        <Badge className="text-white md:text-sm">
+        <Badge className="text-white md:text-sm" variant={"destructive"}>
           <LucideChartBarDecreasing /> {category}
         </Badge>
         <h2

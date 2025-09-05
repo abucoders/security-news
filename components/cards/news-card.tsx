@@ -26,7 +26,10 @@ const NewsCard = ({ post, index }: Props) => {
           fill
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
-        <Badge className="absolute top-3 left-3 text-xs text-white">
+        <Badge
+          className="absolute bottom-3 left-3 text-xs text-white"
+          variant="destructive"
+        >
           {post.category}
         </Badge>
       </div>
