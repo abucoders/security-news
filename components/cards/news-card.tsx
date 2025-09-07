@@ -11,13 +11,18 @@ interface Props {
 }
 
 const NewsCard = ({ post, index }: Props) => {
+  const onNavigate = () => {
+    window.location.href = `/news/${post.id}`;
+  };
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       viewport={{ once: true }}
-      className="overflow-hidden rounded-xl border shadow-sm transition hover:shadow-lg"
+      className="cursor-pointer overflow-hidden rounded-xl border shadow-sm transition hover:shadow-lg"
+      onClick={onNavigate}
     >
       <div className="relative h-48 w-full overflow-hidden">
         <Image
