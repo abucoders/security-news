@@ -15,6 +15,7 @@ interface Props {
 
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
+  console.log(slug);
   const t = await getTranslations();
 
   const blog = {
