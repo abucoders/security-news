@@ -1,25 +1,24 @@
 "use client";
 
+import { format } from "date-fns";
 import { LucideChartBarDecreasing } from "lucide-react";
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import { useState } from "react";
+import striptags from "striptags";
 
 import { Badge } from "@/components/ui/badge";
-import { ILastNews } from "@/types/service-type";
+import { getLocalizedValue } from "@/lib/utils";
+import { INews } from "@/types/service-type";
 
-interface Props extends ILastNews {
+interface Props {
+  item: INews;
   large?: boolean;
 }
 
-const LastNewsCard = ({
-  category,
-  date,
-  description,
-  image,
-  title,
-  large = false,
-}: Props) => {
+const LastNewsCard = ({ item, large = false }: Props) => {
   const [loaded, setLoaded] = useState(false);
+  const locale = useLocale();
 
   return (
     <div
@@ -33,8 +32,8 @@ const LastNewsCard = ({
         )}
 
         <Image
-          src={image}
-          alt={title}
+          src={item.image.url}
+          alt={getLocalizedValue(item, "title", locale)}
           fill
           className={`object-cover transition duration-700 ease-out group-hover:scale-105 ${loaded ? "blur-0 opacity-100" : "opacity-0 blur-lg"}`}
           onLoadingComplete={() => setLoaded(true)}
@@ -44,7 +43,7 @@ const LastNewsCard = ({
 
       <div className="absolute right-4 bottom-4 left-4 z-10 text-white">
         <Badge className="text-white md:text-sm" variant={"destructive"}>
-          <LucideChartBarDecreasing /> {category}
+          <LucideChartBarDecreasing /> {item.categories[0]?.title}
         </Badge>
         <h2
           className={`mt-2 text-base font-bold ${
@@ -53,15 +52,15 @@ const LastNewsCard = ({
               : "line-clamp-1 md:text-lg"
           }`}
         >
-          {title}
+          {getLocalizedValue(item, "title", locale)}
         </h2>
-        {large && description && (
+        {large && item.descriptionUz.html && (
           <p className="mt-2 line-clamp-2 text-sm opacity-90 md:text-base">
-            {description}
+            {striptags(getLocalizedValue(item, "description", locale).html)}
           </p>
         )}
         <div className="mt-3 flex items-center gap-2 text-sm">
-          <span>{date}</span>
+          <span>{format(item.createdAt, "dd/MM/yyyy")}</span>
         </div>
       </div>
     </div>
