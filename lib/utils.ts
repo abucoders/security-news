@@ -28,3 +28,13 @@ export const getReadingTime = (content: string, textRead: string) => {
     text: `${minutes} ${textRead}`,
   };
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getLocalizedValue<T extends Record<string, any>>(
+  obj: T,
+  baseKey: string,
+  locale: string,
+) {
+  const key = baseKey + locale.charAt(0).toUpperCase() + locale.slice(1);
+  return obj[key] ?? obj[baseKey + "Uz"];
+}

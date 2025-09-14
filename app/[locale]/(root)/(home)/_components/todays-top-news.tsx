@@ -3,13 +3,26 @@
 import { motion } from "framer-motion";
 import { MoveRightIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 import NewsCard from "@/components/cards/news-card";
 import PopularPostCard from "@/components/cards/popular-post-card";
-import { categories, newsPosts } from "@/constants";
+import { categories } from "@/constants";
+import { getBlogs } from "@/service/blog.service";
+import { INews } from "@/types/service-type";
 
 const TodaysTopNews = () => {
   const t = useTranslations();
+
+  const [newsPosts, setNewsPosts] = useState<INews[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const data = await getBlogs();
+      setNewsPosts(data);
+    };
+    fetchBlogs();
+  }, []);
 
   return (
     <div className="container mx-auto max-w-7xl px-2 py-12">

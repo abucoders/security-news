@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-named-as-default
 import request, { gql } from "graphql-request";
 
+import { INews } from "@/types/service-type";
+
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 
 export const getBlogs = async () => {
@@ -20,11 +22,16 @@ export const getBlogs = async () => {
         image {
           url
         }
-        updatedAt
+        categories {
+          ... on Categorie {
+            title
+          }
+        }
+        createdAt
       }
     }
   `;
 
-  const result = await request(graphqlAPI, query);
-  return result;
+  const result = await request<{ news: INews[] }>(graphqlAPI, query);
+  return result.news;
 };

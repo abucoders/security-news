@@ -1,26 +1,33 @@
+import { format } from "date-fns";
 import Image from "next/image";
+import { useLocale } from "next-intl";
 
-import { ILastNews } from "@/types/service-type";
+import { getLocalizedValue } from "@/lib/utils";
+import { INews } from "@/types/service-type";
 
 interface Props {
-  item: ILastNews;
+  item: INews;
 }
 
 const PopularPostCard = ({ item }: Props) => {
+  const locale = useLocale();
+
   return (
     <div key={item.id} className="flex items-start gap-3">
       <Image
-        src={item.image}
-        alt={item.title}
+        src={item.image.url}
+        alt={getLocalizedValue(item, "title", locale)}
         width={80}
         height={60}
         className="rounded-md object-cover"
       />
       <div>
         <p className="text-foreground hover:text-primary line-clamp-1 text-sm font-semibold transition">
-          {item.title}
+          {getLocalizedValue(item, "title", locale)}
         </p>
-        <span className="text-muted-foreground text-xs">{item.date}</span>
+        <span className="text-muted-foreground text-xs">
+          {format(item.createdAt, "dd/MM/yyyy")}
+        </span>
       </div>
     </div>
   );
