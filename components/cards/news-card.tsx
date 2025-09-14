@@ -38,7 +38,7 @@ const NewsCard = ({ post, index }: Props) => {
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
         <Badge
-          className="absolute bottom-3 left-3 text-xs text-white"
+          className="absolute bottom-3 left-3 text-xs text-white capitalize"
           variant="destructive"
         >
           {post.categories[0]?.title}

@@ -1,11 +1,11 @@
-import { getBlogs } from "@/service/blog.service";
+import { getCategories } from "@/service/categorie.service";
 
 import Hero from "./_components/hero";
 import TodaysTopNews from "./_components/todays-top-news";
 
 const Page = async () => {
-  const blog = await getBlogs();
-  console.log(blog);
+  const categories = await getCategories();
+  console.log(categories);
   return (
     <>
       <Hero />

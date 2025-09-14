@@ -7,19 +7,23 @@ import { useEffect, useState } from "react";
 
 import NewsCard from "@/components/cards/news-card";
 import PopularPostCard from "@/components/cards/popular-post-card";
-import { categories } from "@/constants";
 import { getBlogs } from "@/service/blog.service";
-import { INews } from "@/types/service-type";
+import { getCategories } from "@/service/categorie.service";
+import { ICategorie, INews } from "@/types/service-type";
 
 const TodaysTopNews = () => {
   const t = useTranslations();
 
   const [newsPosts, setNewsPosts] = useState<INews[]>([]);
+  const [categories, setCategories] = useState<ICategorie[]>([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
       const data = await getBlogs();
       setNewsPosts(data);
+
+      const categoriesData = await getCategories();
+      setCategories(categoriesData);
     };
     fetchBlogs();
   }, []);
@@ -64,11 +68,13 @@ const TodaysTopNews = () => {
             <ul className="text-foreground space-y-3 text-sm">
               {categories.map((topic) => (
                 <li
-                  key={topic.name}
+                  key={topic.id}
                   className="hover:text-primary/85 flex justify-between transition"
                 >
-                  <span>{topic.name}</span>
-                  <span className="text-muted-foreground">({topic.count})</span>
+                  <span className="capitalize">{topic.title}</span>
+                  <span className="text-muted-foreground">
+                    ({topic.news.length})
+                  </span>
                 </li>
               ))}
             </ul>

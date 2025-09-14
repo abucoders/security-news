@@ -26,3 +26,11 @@ export interface INews {
   }[];
   createdAt: string;
 }
+
+export interface ICategorie {
+  id: string;
+  title: string;
+  news: {
+    id: string;
+  }[];
+}

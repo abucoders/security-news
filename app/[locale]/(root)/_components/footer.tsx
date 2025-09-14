@@ -2,14 +2,26 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 import Logo from "@/components/shared/logo";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { categories, navLinks } from "@/constants";
+import { navLinks } from "@/constants";
+import { getCategories } from "@/service/categorie.service";
+import { ICategorie } from "@/types/service-type";
 
 function Footer() {
   const t = useTranslations();
+  const [categories, setCategories] = useState<ICategorie[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const categoriesData = await getCategories();
+      setCategories(categoriesData);
+    };
+    fetchBlogs();
+  }, []);
 
   return (
     <div className="bg-secondary mt-12 border-t px-2 pt-12 max-md:px-4">
@@ -40,10 +52,10 @@ function Footer() {
             <div className="flex flex-wrap gap-1 pt-6">
               {categories.slice(-5).map((item) => (
                 <Badge
-                  key={item.name}
-                  className="cursor-pointer px-3 py-1 text-white"
+                  key={item.id}
+                  className="hover:bg-primary/75 cursor-pointer px-3 py-1 text-white capitalize transition-all"
                 >
-                  {item.name}
+                  {item.title}
                 </Badge>
               ))}
             </div>

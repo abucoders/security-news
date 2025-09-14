@@ -33,5 +33,5 @@ export const getBlogs = async () => {
   `;
 
   const result = await request<{ news: INews[] }>(graphqlAPI, query);
-  return result.news;
+  return result.news.reverse();
 };
