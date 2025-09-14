@@ -47,7 +47,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-secondary w-full px-4 max-md:mt-16">
+      <div className="bg-secondary w-full px-4 max-md:mt-16 md:mt-10">
         <Carousel
           className="container mx-auto max-w-7xl"
           opts={{
