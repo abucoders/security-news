@@ -24,8 +24,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Security News",
-  description: "Security News from the world of security",
+  title: "Bukhara Info",
+  description: "Bukhara Info - abucoders",
 };
 
 interface RootLayoutProps extends ChildProps {
