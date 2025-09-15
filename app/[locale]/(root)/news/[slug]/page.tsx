@@ -1,9 +1,11 @@
 import { format } from "date-fns";
 import parse from "html-react-parser";
-import { CalendarDays, Clock, Minus } from "lucide-react";
+import { CalendarDays, Clock, Minus, Tag } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
+import { Badge } from "@/components/ui/badge";
 import { getLocalizedValue, getReadingTime } from "@/lib/utils";
 import { getBlog } from "@/service/blog.service";
 
@@ -44,6 +46,22 @@ const Page = async ({ params }: Props) => {
         <div className="flex items-center gap-2">
           <CalendarDays className="h-5 w-5" />
           <p>{format(blog.createdAt, "dd/MM/yyyy")}</p>
+        </div>
+
+        <div className="flex items-center gap-2">
+          {blog.categories?.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/${locale}/category/${category.slug}`}
+            >
+              <Badge
+                className={"cursor-pointer font-semibold text-white capitalize"}
+              >
+                <Tag />
+                {category.title}
+              </Badge>
+            </Link>
+          ))}
         </div>
       </div>
 

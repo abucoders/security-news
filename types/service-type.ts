@@ -22,6 +22,7 @@ export interface INews {
     url: string;
   };
   categories: {
+    slug: string;
     title: string;
   }[];
   createdAt: string;
@@ -29,6 +30,7 @@ export interface INews {
 
 export interface ICategorie {
   id: string;
+  slug: string;
   title: string;
   news: {
     id: string;

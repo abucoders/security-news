@@ -10,6 +10,7 @@ export const getCategories = async () => {
     query Categories {
       categories {
         id
+        slug
         title
         news {
           id

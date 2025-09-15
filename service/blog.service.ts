@@ -56,6 +56,7 @@ export const getBlog = async (slug: string) => {
         createdAt
         categories {
           ... on Categorie {
+            slug
             title
           }
         }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import Logo from "@/components/shared/logo";
@@ -14,6 +14,8 @@ import { ICategorie } from "@/types/service-type";
 function Footer() {
   const t = useTranslations();
   const [categories, setCategories] = useState<ICategorie[]>([]);
+
+  const locale = useLocale();
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -51,12 +53,11 @@ function Footer() {
             <h1 className="font-spaceGrotesk text-3xl">{t("categories")}</h1>
             <div className="flex flex-wrap gap-1 pt-6">
               {categories.slice(-5).map((item) => (
-                <Badge
-                  key={item.id}
-                  className="hover:bg-primary/75 cursor-pointer px-3 py-1 text-white capitalize transition-all"
-                >
-                  {item.title}
-                </Badge>
+                <Link key={item.slug} href={`/${locale}/category/${item.slug}`}>
+                  <Badge className="hover:bg-primary/75 cursor-pointer px-3 py-1 text-white capitalize transition-all">
+                    {item.title}
+                  </Badge>
+                </Link>
               ))}
             </div>
           </div>
