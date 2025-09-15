@@ -35,3 +35,34 @@ export const getBlogs = async () => {
   const result = await request<{ news: INews[] }>(graphqlAPI, query);
   return result.news.reverse();
 };
+
+export const getBlog = async (slug: string) => {
+  const query = gql`
+    query MyQuery($slug: String!) {
+      new(where: { slug: $slug }) {
+        id
+        titleKr
+        titleUz
+        slug
+        descriptionKr {
+          html
+        }
+        descriptionUz {
+          html
+        }
+        image {
+          url
+        }
+        createdAt
+        categories {
+          ... on Categorie {
+            title
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request<{ new: INews }>(graphqlAPI, query, { slug });
+  return result.new;
+};

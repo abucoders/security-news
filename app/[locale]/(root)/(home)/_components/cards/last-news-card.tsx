@@ -20,11 +20,16 @@ const LastNewsCard = ({ item, large = false }: Props) => {
   const [loaded, setLoaded] = useState(false);
   const locale = useLocale();
 
+  const onNavigate = () => {
+    window.location.href = `/news/${item.slug}`;
+  };
+
   return (
     <div
       className={`group relative cursor-pointer overflow-hidden rounded-2xl shadow-lg ${
         large && "col-span-2 row-span-2"
       }`}
+      onClick={onNavigate}
     >
       <div className="group relative h-full w-full overflow-hidden">
         {!loaded && (

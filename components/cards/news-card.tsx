@@ -16,7 +16,7 @@ interface Props {
 
 const NewsCard = ({ post, index }: Props) => {
   const onNavigate = () => {
-    window.location.href = `/news/${post.id}`;
+    window.location.href = `/news/${post.slug}`;
   };
 
   const locale = useLocale();

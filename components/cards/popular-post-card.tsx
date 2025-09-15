@@ -10,10 +10,17 @@ interface Props {
 }
 
 const PopularPostCard = ({ item }: Props) => {
-  const locale = useLocale();
+  const onNavigate = () => {
+    window.location.href = `/news/${item.slug}`;
+  };
 
+  const locale = useLocale();
   return (
-    <div key={item.id} className="flex items-start gap-3">
+    <div
+      key={item.id}
+      className="group flex cursor-pointer items-start gap-3"
+      onClick={onNavigate}
+    >
       <Image
         src={item.image.url}
         alt={getLocalizedValue(item, "title", locale)}
@@ -22,7 +29,7 @@ const PopularPostCard = ({ item }: Props) => {
         className="rounded-md object-cover"
       />
       <div>
-        <p className="text-foreground hover:text-primary line-clamp-1 text-sm font-semibold transition">
+        <p className="text-foreground group-hover:text-primary line-clamp-1 text-sm font-semibold transition">
           {getLocalizedValue(item, "title", locale)}
         </p>
         <span className="text-muted-foreground text-xs">

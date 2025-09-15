@@ -2,6 +2,7 @@
 
 import { Languages } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
 import { lngs } from "@/constants";
@@ -23,6 +24,7 @@ interface Props {
 export const LanguageDropdown = ({ isMobile }: Props) => {
   const locale = useLocale();
   const t = useTranslations();
+  const pathname = usePathname();
 
   return (
     <DropdownMenu>
@@ -45,7 +47,10 @@ export const LanguageDropdown = ({ isMobile }: Props) => {
       <DropdownMenuContent className="w-56">
         <DropdownMenuGroup>
           {lngs.map((language) => (
-            <Link key={language.route} href={`/${language.route}`}>
+            <Link
+              key={language.route}
+              href={`/${language.route}/${pathname.slice(4)}`}
+            >
               <DropdownMenuItem
                 className={cn(
                   "font-spaceGrotesk my-0.5 flex w-full font-medium",
