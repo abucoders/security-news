@@ -32,10 +32,10 @@ export const LanguageDropdown = ({ isMobile }: Props) => {
         <Button
           variant={isMobile ? "default" : "ghost"}
           size="icon"
-          className={`${isMobile && "w-full text-white"} gap-2`}
+          className={`${isMobile && "w-full text-white"} gap-1 px-6`}
         >
           <Languages />
-
+          <span className="uppercase">{locale}</span>
           {isMobile && (
             <span className="font-spaceGrotesk text-sm font-medium">
               {t("cyrrentLng")}

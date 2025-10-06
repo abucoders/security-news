@@ -5,7 +5,9 @@ import { Footer, Navbar } from "./_components";
 const Layout = ({ children }: ChildProps) => {
   return (
     <div>
-      <Navbar />
+      <div className="mb-24">
+        <Navbar />
+      </div>
       <main>{children}</main>
       <Footer />
     </div>
