@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 import NewsCard from "@/components/cards/news-card";
 import PopularPostCard from "@/components/cards/popular-post-card";
 import { Marquee } from "@/components/ui/marquee";
+import { NumberTicker } from "@/components/ui/number-ticker";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { SparklesText } from "@/components/ui/sparkles-text";
+import { TextAnimate } from "@/components/ui/text-animate";
 import { getBlogs } from "@/service/blog.service";
 import { getCategories } from "@/service/categorie.service";
 import { ICategorie, INews } from "@/types/service-type";
@@ -32,7 +36,9 @@ const TodaysTopNews = () => {
   return (
     <div className="container mx-auto max-w-7xl px-2 py-12">
       <h2 className="font-spaceGrotesk border-primary/70 inline-block border-b-2 pb-1 text-3xl font-bold">
-        {t("todaysTopNews")}
+        <TextAnimate animation="slideLeft" by="character">
+          {t("todaysTopNews")}
+        </TextAnimate>
       </h2>
 
       <div className="grid grid-cols-3 gap-6 pt-10">
@@ -64,7 +70,9 @@ const TodaysTopNews = () => {
           {/*  Categories */}
           <div className="rounded-xl border p-5 shadow-sm">
             <h3 className="border-primary/75 mb-4 border-b-2 pb-2 text-lg font-bold">
-              {t("categories")}
+              <TextAnimate animation="blurInUp" by="character" delay={0.1}>
+                {t("categories")}
+              </TextAnimate>
             </h3>
             <ul className="text-foreground space-y-3 text-sm">
               {categories.map((topic) => (
@@ -74,7 +82,13 @@ const TodaysTopNews = () => {
                 >
                   <span className="capitalize">{topic.title}</span>
                   <span className="text-muted-foreground">
-                    ({topic.news.length})
+                    {/* ({topic.news.length}) */}
+                    (
+                    <NumberTicker
+                      value={topic.news.length}
+                      className="text-muted-foreground"
+                    />
+                    )
                   </span>
                 </li>
               ))}
@@ -83,10 +97,9 @@ const TodaysTopNews = () => {
 
           {/* Popular Post */}
           <div className="rounded-xl border p-5 shadow-sm">
-            <h3 className="border-primary/70 mb-4 border-b-2 pb-2 text-lg font-bold">
+            <SparklesText className="border-primary/70 mb-4 border-b-2 pb-2 text-lg font-bold">
               {t("popularPost")}
-            </h3>
-
+            </SparklesText>
 
             <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden">
               <Marquee pauseOnHover vertical className="[--duration:20s]">
@@ -97,6 +110,16 @@ const TodaysTopNews = () => {
 
               {/* <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div> */}
               <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
+            </div>
+
+            <div className="flex w-full justify-center pt-6">
+              <RainbowButton
+                variant={"outline"}
+                size={"sm"}
+                className="bg-red-400"
+              >
+                Ko`proq ko`rish
+              </RainbowButton>
             </div>
           </div>
         </div>

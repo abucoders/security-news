@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { LanguageDropdown } from "@/components/shared/language-dropdown";
 import Logo from "@/components/shared/logo";
 import ModeToggle from "@/components/shared/mode-toggle";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -56,7 +57,8 @@ const Mobile = () => {
           <div className="flex items-center justify-center">
             <GlobalSearch />
 
-            <ModeToggle />
+            {/* <ModeToggle /> */}
+            <AnimatedThemeToggler duration={500} />
           </div>
         </SheetHeader>
       </SheetContent>

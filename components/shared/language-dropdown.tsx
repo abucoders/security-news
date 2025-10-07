@@ -35,7 +35,7 @@ export const LanguageDropdown = ({ isMobile }: Props) => {
           className={`${isMobile && "w-full text-white"} gap-1 px-6`}
         >
           <Languages />
-          <span className="uppercase">{locale}</span>
+          {/* <span className="uppercase">{locale}</span> */}
           {isMobile && (
             <span className="font-spaceGrotesk text-sm font-medium">
               {t("cyrrentLng")}

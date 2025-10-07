@@ -57,9 +57,8 @@ export default async function RootLayout({
           >
             <ScrollProgress className="bottom-0 z-[100] h-0.5" />
 
-            {/* 🔹 Orqa fon uchun particle */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-              <Particles quantity={500} staticity={50} />
+              <Particles quantity={500} staticity={100} />
             </div>
 
             {children}
