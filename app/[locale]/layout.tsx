@@ -10,6 +10,8 @@ import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ChildProps } from "@/types";
 import { Toaster } from "@/components/ui/sonner";
+import { Particles } from "@/components/ui/particles";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -53,6 +55,13 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <ScrollProgress className="bottom-0 z-[100] h-0.5" />
+
+            {/* 🔹 Orqa fon uchun particle */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+              <Particles quantity={500} staticity={50} />
+            </div>
+
             {children}
             <Toaster />
           </ThemeProvider>

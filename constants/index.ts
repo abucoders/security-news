@@ -1,4 +1,14 @@
-import { BrainCircuit, Dumbbell, Home, Plane } from "lucide-react";
+import {
+  BrainCircuit,
+  Dumbbell,
+  FileCode,
+  GaugeCircle,
+  Home,
+  MessageSquareMore,
+  MonitorPlay,
+  Plane,
+  Settings2,
+} from "lucide-react";
 
 // Navbar links
 export const navLinks = [
@@ -6,6 +16,35 @@ export const navLinks = [
   { route: "news/technology", name: "navLink2", icon: BrainCircuit },
   { route: "news/sport", name: "navLink3", icon: Dumbbell },
   { route: "news/travel", name: "navLink4", icon: Plane },
+];
+
+// Instructor Navbar links
+export const instructorNavLinks = [
+  {
+    label: "Dashboard",
+    route: "/admin-secruty",
+    icon: GaugeCircle,
+  },
+  {
+    label: "My Courses",
+    route: "/admin-secruty/my-courses",
+    icon: MonitorPlay,
+  },
+  {
+    label: "Create Course",
+    route: "/admin-secruty/create-course",
+    icon: FileCode,
+  },
+  {
+    label: "Reviews",
+    route: "/admin-secruty/reviews",
+    icon: MessageSquareMore,
+  },
+  {
+    label: "Settings",
+    route: "/admin-secruty/settings",
+    icon: Settings2,
+  },
 ];
 
 // Langs

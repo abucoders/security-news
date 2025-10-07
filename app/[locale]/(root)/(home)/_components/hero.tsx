@@ -1,11 +1,10 @@
 "use client";
 
-import Autoplay from "embla-carousel-autoplay";
 import { Newspaper } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
-import { Carousel, CarouselContent } from "@/components/ui/carousel";
+import { Marquee } from "@/components/ui/marquee";
 import { getBlogs } from "@/service/blog.service";
 import { INews } from "@/types/service-type";
 
@@ -58,7 +57,28 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-secondary w-full px-4 max-md:mt-16 md:mt-10">
+      <div className="relative mt-7 flex w-full flex-col items-center justify-center overflow-hidden py-7">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {newsPosts.map((review) => (
+            <CurrentNewsCard key={review.id} item={review} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {newsPosts.map((review) => (
+            <CurrentNewsCard key={review.id} item={review} />
+          ))}
+        </Marquee>
+
+        <div className="bg-primary absolute top-0 left-33 rounded-tl-md rounded-tr-md">
+          <h3 className="flex items-center justify-center gap-2 px-4 text-base font-semibold text-white">
+            <Newspaper className="size-4" /> <span>{t("currentNews")}</span>
+          </h3>
+        </div>
+        <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+      </div>
+
+      {/* <div className="bg-secondary w-full px-4 max-md:mt-16 md:mt-10">
         <Carousel
           className="container mx-auto max-w-7xl"
           opts={{
@@ -79,7 +99,7 @@ const Hero = () => {
             ))}
           </CarouselContent>
         </Carousel>
-      </div>
+      </div> */}
     </>
   );
 };

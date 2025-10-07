@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 
-import { getLocalizedValue } from "@/lib/utils";
+import { cn, getLocalizedValue } from "@/lib/utils";
 import { INews } from "@/types/service-type";
 
 interface Props {
@@ -18,7 +18,13 @@ const PopularPostCard = ({ item }: Props) => {
   return (
     <div
       key={item.id}
-      className="group flex cursor-pointer items-start gap-3"
+      className={cn(
+        "group relative flex h-full cursor-pointer items-start gap-3 overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+      )}
       onClick={onNavigate}
     >
       <Image

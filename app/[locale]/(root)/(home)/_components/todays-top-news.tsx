@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import NewsCard from "@/components/cards/news-card";
 import PopularPostCard from "@/components/cards/popular-post-card";
+import { Marquee } from "@/components/ui/marquee";
 import { getBlogs } from "@/service/blog.service";
 import { getCategories } from "@/service/categorie.service";
 import { ICategorie, INews } from "@/types/service-type";
@@ -85,10 +86,17 @@ const TodaysTopNews = () => {
             <h3 className="border-primary/70 mb-4 border-b-2 pb-2 text-lg font-bold">
               {t("popularPost")}
             </h3>
-            <div className="flex flex-col gap-3">
-              {newsPosts.slice(0, 4).map((item) => (
-                <PopularPostCard key={item.id} item={item} />
-              ))}
+
+
+            <div className="relative flex h-[500px] w-full flex-row items-center justify-center overflow-hidden">
+              <Marquee pauseOnHover vertical className="[--duration:20s]">
+                {newsPosts.slice(0, 6).map((item) => (
+                  <PopularPostCard key={item.id} item={item} />
+                ))}
+              </Marquee>
+
+              {/* <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div> */}
+              <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
             </div>
           </div>
         </div>
