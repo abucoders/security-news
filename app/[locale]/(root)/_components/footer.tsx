@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import Logo from "@/components/shared/logo";
 import { Badge } from "@/components/ui/badge";
+import { Meteors } from "@/components/ui/meteors";
 import { Separator } from "@/components/ui/separator";
 import { navLinks } from "@/constants";
 import { getCategories } from "@/service/categorie.service";
@@ -26,7 +27,8 @@ function Footer() {
   }, []);
 
   return (
-    <div className="bg-secondary mt-12 border-t px-2 pt-12 max-md:px-4">
+    <div className="bg-secondary relative mt-12 overflow-hidden border-t px-2 pt-12 max-md:px-4">
+      <Meteors number={30} />
       <div className="container mx-auto max-w-7xl pb-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           <div className="flex flex-col space-y-3 md:col-span-2">

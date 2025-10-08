@@ -1,9 +1,11 @@
 import {
+  BookCheck,
   BrainCircuit,
   Dumbbell,
   FileCode,
   GaugeCircle,
   Home,
+  MapPin,
   MessageSquareMore,
   MonitorPlay,
   Plane,
@@ -16,6 +18,12 @@ export const navLinks = [
   { route: "news/technology", name: "navLink2", icon: BrainCircuit },
   { route: "news/sport", name: "navLink3", icon: Dumbbell },
   { route: "news/travel", name: "navLink4", icon: Plane },
+];
+
+export const fullNavLinks = [
+  { route: "", name: "navLink1", icon: Home },
+  { route: "/books", name: "fullNavLink5", icon: BookCheck },
+  { route: "/map", name: "fullNavLink6", icon: MapPin },
 ];
 
 // Instructor Navbar links

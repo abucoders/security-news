@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
+import { TypingAnimation } from "@/components/ui/typing-animation";
 import { getLocalizedValue, getReadingTime } from "@/lib/utils";
 import { getBlog } from "@/service/blog.service";
 
@@ -27,7 +28,9 @@ const Page = async ({ params }: Props) => {
   return (
     <div className="mx-auto max-w-6xl pt-[15vh] max-md:px-2">
       <h1 className="font-creteRound text-4xl md:text-5xl lg:text-6xl">
-        {getLocalizedValue(blog, "title", locale)}
+        <TypingAnimation showCursor={false}>
+          {getLocalizedValue(blog, "title", locale)}
+        </TypingAnimation>
       </h1>
 
       <div className="mt-4 flex flex-wrap items-center gap-4 max-md:justify-center">

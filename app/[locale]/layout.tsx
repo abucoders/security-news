@@ -10,8 +10,8 @@ import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ChildProps } from "@/types";
 import { Toaster } from "@/components/ui/sonner";
-import { Particles } from "@/components/ui/particles";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { LightRays } from "@/components/ui/light-rays";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -57,12 +57,10 @@ export default async function RootLayout({
           >
             <ScrollProgress className="bottom-0 z-[100] h-0.5" />
 
-            <div className="absolute inset-0 -z-10 overflow-hidden">
-              <Particles quantity={500} staticity={100} />
-            </div>
-
             {children}
+
             <Toaster />
+            <LightRays />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

@@ -6,7 +6,6 @@ import { useTranslations } from "next-intl";
 
 import { LanguageDropdown } from "@/components/shared/language-dropdown";
 import Logo from "@/components/shared/logo";
-import ModeToggle from "@/components/shared/mode-toggle";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -16,7 +15,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navLinks } from "@/constants";
+import { fullNavLinks, navLinks } from "@/constants";
 
 import GlobalSearch from "./global-search";
 
@@ -25,13 +24,13 @@ const Mobile = () => {
 
   return (
     <Sheet>
-      <SheetTrigger className="lg:hidden" asChild>
+      <SheetTrigger asChild>
         <Button variant={"ghost"} size={"icon"}>
           <AlignCenter />
         </Button>
       </SheetTrigger>
 
-      <SheetContent side={"top"}>
+      <SheetContent side={"left"}>
         <SheetHeader>
           {/* Logo */}
           <Logo />
@@ -40,6 +39,17 @@ const Mobile = () => {
 
           <div className="mt-4 flex flex-col space-y-4">
             {navLinks.map((nav) => (
+              <Link
+                key={nav.route}
+                href={`/${nav.route}`}
+                className="hover:text-primary/90 flex gap-3 font-medium transition-all hover:underline lg:hidden"
+              >
+                <nav.icon className="size-5" />
+                {t(`NavbarLink.${nav.name}`)}
+              </Link>
+            ))}
+
+            {fullNavLinks.map((nav) => (
               <Link
                 key={nav.route}
                 href={`/${nav.route}`}
