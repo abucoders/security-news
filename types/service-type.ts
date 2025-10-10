@@ -36,3 +36,15 @@ export interface ICategorie {
     id: string;
   }[];
 }
+
+export interface CategorieTag {
+  title: string;
+  slug: string;
+}
+
+export interface ICategorieNews {
+  id: string;
+  title: string;
+  slug: string;
+  news: INews[];
+}

@@ -1,3 +1,7 @@
+// Base URL
+// TODO bu yerni urlni to'girla
+export const baseUrl = "https://localhost:3000";
+
 import {
   BookCheck,
   BrainCircuit,

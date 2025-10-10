@@ -55,7 +55,7 @@ const Page = async ({ params }: Props) => {
           {blog.categories?.map((category) => (
             <Link
               key={category.slug}
-              href={`/${locale}/category/${category.slug}`}
+              href={`/${locale}/categories/${category.slug}`}
             >
               <Badge
                 className={"cursor-pointer font-semibold text-white capitalize"}
